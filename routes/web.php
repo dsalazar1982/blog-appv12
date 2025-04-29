@@ -11,7 +11,6 @@ Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/create', [PostController::class, 'create']);
 Route::get('/posts/{post}', [PostController::class, 'show']);
 
-
 //get
 //post
 
@@ -23,12 +22,12 @@ Route::get('/posts/{post}', [PostController::class, 'show']);
 Route::get('prueba', function () {
 
     /*
-        // CREAR UN NUEVO REGISTRO
+    // CREAR UN NUEVO REGISTRO
         $post = new Post;
 
-        $post->title = "TITULO DE PRUEBA 3";
-        $post->content = "Contenido de prueba 3";
-        $post->category = "Categoria 3";
+        $post->title = "TiTuLo DE prueBA 4";
+        $post->content = "Contenido de prueba 4";
+        $post->category = "Categoria 4";
         $post->save();
 
         return $post;
@@ -45,8 +44,8 @@ Route::get('prueba', function () {
         return $post;
     */
 
-
-        // LISTAR TODOS LOS REGISTROS
+    /*
+    // LISTAR TODOS LOS REGISTROS
         //$posts = Post::all();
         $posts = Post::get();
         //$posts = Post::orderBy('category')->get();
@@ -54,10 +53,16 @@ Route::get('prueba', function () {
         //$posts = Post::orderBy('category')->select('id', 'title', 'category')->take(1)->get();
 
         return $posts;
+    */
+
+    // LISTAR UN REGISTRO
+        $posts = Post::find(4);
+
+        return $posts;
 
 
     /*
-        // ELIMNAR UN REGISTRO
+    // ELIMNAR UN REGISTRO
         $post = Post::find(1);
 
         $post->delete();
