@@ -22,6 +22,15 @@ Route::get('/posts/{post}', [PostController::class, 'show']);
 Route::get('prueba', function () {
 
     /*
+    $posts = Post::find(1);
+
+    //return $posts->created_at->format('d-m-Y');
+    //return $posts->created_at->diffForHumans();
+    //return $posts->is_active;
+    dd($posts->is_active);
+    */
+
+    /*
     // CREAR UN NUEVO REGISTRO
         $post = new Post;
 
@@ -55,11 +64,12 @@ Route::get('prueba', function () {
         return $posts;
     */
 
+    /*
     // LISTAR UN REGISTRO
         $posts = Post::find(4);
 
         return $posts;
-
+    */
 
     /*
     // ELIMNAR UN REGISTRO

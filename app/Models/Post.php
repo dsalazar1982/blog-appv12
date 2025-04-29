@@ -8,6 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+
+    // Casting para el campo published_at
+    protected function casts(): array {
+        return [
+            'published_at' => 'datetime',
+            'is_active' => 'boolean',
+        ];
+    }
+
     //
     use HasFactory;
 
