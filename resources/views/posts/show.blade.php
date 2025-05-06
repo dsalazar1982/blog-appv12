@@ -1,11 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel 11 | Post</title>
-</head>
-<body>
-    <h1>Aqui se mostrara el post {{ $post }}</h1>
-</body>
-</html>
+<x-app-layout>
+
+    <a href="{{ route('posts.index') }}">REGRESAR A LISTA DE POST</a>
+
+    <h1>Titulo: {{ $post->title }}</h1>
+    <p>
+        <b>Categoria:</b>{{ $post->category }}
+    </p>
+    <p>
+        {{ $post->content }}
+    </p>
+
+    <a href="{{ route('posts.edit', $post->id) }}">EDITAR POST</a>
+
+    <form action="{{ route('posts.delete', $post->id) }}" method="POST">
+
+        @csrf
+        @method('delete')
+        <button type="submit">ELMINAR POST</button>
+
+    </form>
+
+
+</x-app-layout>
