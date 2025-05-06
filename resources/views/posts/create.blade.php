@@ -1,11 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel 11 | Post</title>
-</head>
-<body>
-    <h1>Aqui se mostrara un formulario para crear post</h1>
-</body>
-</html>
+<x-app-layout>
+
+    <h1>Formulario para crear un nuevo post</h1>
+
+    <form action="{{ route('posts.store') }}" method="POST">
+
+    @csrf
+        <label for="">
+            Titulo:
+            <input type="text" name="title">
+        </label>
+        <br>
+        <br>
+        <label for="">
+            Categoria:
+            <input type="text" name="category">
+        </label>
+        <br>
+        <br>
+        <label for="">
+            Contenido:
+            <textarea name="content" id=""></textarea>
+        </label>
+        <br>
+        <br>
+        <button type="submit">CREAR POST</button>
+    </form>
+</x-app-layout>
