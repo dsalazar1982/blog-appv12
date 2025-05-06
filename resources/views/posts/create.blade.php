@@ -24,5 +24,6 @@
         <br>
         <br>
         <button type="submit">CREAR POST</button>
+        <a href="{{ route('posts.index') }}">CANCELAR</a>
     </form>
 </x-app-layout>

@@ -48,4 +48,12 @@ class PostController extends Controller
         $posts = Post::orderBy('id', 'desc')->get();
         return view('posts.index', compact('posts'));
     }
+
+    public function destroy($post){
+        $post = Post::find($post);
+        $post->delete();
+
+        $posts = Post::orderBy('id', 'desc')->get();
+        return view('posts.index', compact('posts'));
+    }
 }

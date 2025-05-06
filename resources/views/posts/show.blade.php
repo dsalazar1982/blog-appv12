@@ -1,15 +1,24 @@
 <x-app-layout>
 
-<a href="{{ route('posts.index') }}">REGRESAR A LISTA DE POST</a>
+    <a href="{{ route('posts.index') }}">REGRESAR A LISTA DE POST</a>
 
     <h1>Titulo: {{ $post->title }}</h1>
-<p>
-    <b>Categoria:</b>{{ $post->category }}
-</p>
-<p>
-    {{ $post->content }}
-</p>
+    <p>
+        <b>Categoria:</b>{{ $post->category }}
+    </p>
+    <p>
+        {{ $post->content }}
+    </p>
 
-<a href="{{ route('posts.edit', $post->id) }}">EDITAR POST</a>
+    <a href="{{ route('posts.edit', $post->id) }}">EDITAR POST</a>
+
+    <form action="{{ route('posts.delete', $post->id) }}" method="POST">
+
+        @csrf
+        @method('delete')
+        <button type="submit">ELMINAR POST</button>
+
+    </form>
+
 
 </x-app-layout>
