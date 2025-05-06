@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('title');
+            $table->string('slug', false, 10)->unique();
             $table->text('content');
             $table->string('category');
             $table->timestamp('published_at');

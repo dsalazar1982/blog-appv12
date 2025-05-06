@@ -2,13 +2,19 @@
 
     <h1>Editar un nuevo post</h1>
 
-    <form action="{{ route('posts.update', $post->id) }}" method="POST">
+    <form action="{{ route('posts.update', $post) }}" method="POST">
 
     @csrf
     @method('PUT')
         <label for="">
             Titulo:
             <input type="text" name="title" value="{{ $post->title }}">
+        </label>
+        <br>
+        <br>
+        <label for="">
+            Slug:
+            <input type="text" name="slug" value="{{ $post->slug }}">
         </label>
         <br>
         <br>

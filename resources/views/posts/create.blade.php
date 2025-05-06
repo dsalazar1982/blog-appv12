@@ -12,6 +12,12 @@
         <br>
         <br>
         <label for="">
+            Slug:
+            <input type="text" name="slug">
+        </label>
+        <br>
+        <br>
+        <label for="">
             Categoria:
             <input type="text" name="category">
         </label>

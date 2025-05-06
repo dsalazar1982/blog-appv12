@@ -10,15 +10,14 @@
         {{ $post->content }}
     </p>
 
-    <a href="{{ route('posts.edit', $post->id) }}">EDITAR POST</a>
+    <a href="{{ route('posts.edit', $post) }}">EDITAR POST</a>
 
-    <form action="{{ route('posts.delete', $post->id) }}" method="POST">
+    <form action="{{ route('posts.destroy', $post) }}" method="POST">
 
         @csrf
         @method('delete')
         <button type="submit">ELMINAR POST</button>
 
     </form>
-
 
 </x-app-layout>
