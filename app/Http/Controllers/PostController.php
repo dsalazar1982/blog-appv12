@@ -19,6 +19,14 @@ class PostController extends Controller
 
     public function store(Request $request){
 
+        // Validacion de formulario de registro.
+        $request->validate([
+            'title' => 'required|min:5|max:255',
+            'slug' => 'required|min:5|max:30|unique:posts',
+            'category' => 'required|min:5|max:50',
+            'content' => 'required|min:10',
+        ]);
+
         Post::create($request->all());
 
         /*Post::create([
@@ -51,6 +59,14 @@ class PostController extends Controller
     }
 
     public function update(Request $request, Post $post){
+
+        // Regla de validacion.
+        $request->validate([
+            'title' => 'required|min:5|max:255',
+            'slug' => "required|min:5|max:30|unique:posts,slug,{$post->id}",
+            'category' => 'required|min:5|max:50',
+            'content' => 'required|min:10',
+        ]);
 
         $post->update($request->all());
 

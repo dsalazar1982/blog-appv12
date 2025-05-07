@@ -8,25 +8,45 @@
     @method('PUT')
         <label for="">
             Titulo:
-            <input type="text" name="title" value="{{ $post->title }}">
+            <input type="text" name="title" value="{{ old('title', $post->title) }}">
+            <div id="idTitle" class="form-text" style="color: red;">
+                @error('title')
+                    {{ $message }}
+                @enderror
+            </div>
         </label>
         <br>
         <br>
         <label for="">
             Slug:
-            <input type="text" name="slug" value="{{ $post->slug }}">
+            <input type="text" name="slug" value="{{ old('slug', $post->slug) }}">
+            <div id="idSlug" class="form-text" style="color: red;">
+                @error('slug')
+                    {{ $message }}
+                @enderror
+            </div>
         </label>
         <br>
         <br>
         <label for="">
             Categoria:
-            <input type="text" name="category" value="{{ $post->category }}">
+            <input type="text" name="category" value="{{ old('category', $post->category) }}">
+            <div id="idCategory" class="form-text" style="color: red;">
+                @error('category')
+                    {{ $message }}
+                @enderror
+            </div>
         </label>
         <br>
         <br>
         <label for="">
             Contenido:
-            <textarea name="content" id="">{{ $post->content }}</textarea>
+            <textarea name="content" id="">{{ old('content', $post->content) }}</textarea>
+            <div id="idContent" class="form-text" style="color: red;">
+                @error('content')
+                    {{ $message }}
+                @enderror
+            </div>
         </label>
         <br>
         <br>
