@@ -18,12 +18,22 @@ class PostController extends Controller
     }
 
     public function store(Request $request){
-        $post = new Post();
+
+        Post::create($request->all());
+
+        /*Post::create([
+            'title' => $request->title,
+            'slug' => $request->slug,
+            'category' => $request->category,
+            'content' => $request->content,
+        ]);*/
+
+        /*$post = new Post();
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->category = $request->category;
         $post->content = $request->content;
-        $post->save();
+        $post->save();*/
 
         /*$posts = Post::orderBy('id', 'desc')->paginate(10);
         return view('posts.index', compact('posts'));*/
@@ -41,12 +51,15 @@ class PostController extends Controller
     }
 
     public function update(Request $request, Post $post){
-        //$post = Post::find($post);
+
+        $post->update($request->all());
+
+        /*//$post = Post::find($post);
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->category = $request->category;
         $post->content = $request->content;
-        $post->save();
+        $post->save();*/
 
         /*$posts = Post::orderBy('id', 'desc')->paginate(10);
         return view('posts.index', compact('posts'));*/

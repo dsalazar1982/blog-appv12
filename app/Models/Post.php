@@ -8,9 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    /*// Propieda que habilita la asignacion masiva y en esta propieda se define que campos se permiten
+    protected $fillable = [
+        'title',
+        'slug',
+        'category',
+        'content'
+    ];*/
+
+    // Propieda que habilita la asignacion masiva y en esta propieda se define que campos no se permiten
+    protected $guarded = [
+        'is_active',
+    ];
+
 
     // Casting para el campo published_at
-    protected function casts(): array {
+    protected function casts(): array
+    {
         return [
             'published_at' => 'datetime',
             'is_active' => 'boolean',
@@ -21,14 +35,15 @@ class Post extends Model
     use HasFactory;
 
     //protected $table = 'posts';
-    protected function title():Attribute {
+    protected function title(): Attribute
+    {
         return Attribute::make(
             // Mutador
-            set: function($value){
+            set: function ($value) {
                 return strtolower($value);
             },
             // Accesor
-            get: function($value){
+            get: function ($value) {
                 return ucfirst($value);
             }
         );
