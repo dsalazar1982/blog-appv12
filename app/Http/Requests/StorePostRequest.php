@@ -30,7 +30,7 @@ class StorePostRequest extends FormRequest
         ];
     }
 
-    public function messages()
+    /*public function messages()
     {
         return [
             'title.required' => "El campo :attribute es obligatorio.",
@@ -45,5 +45,5 @@ class StorePostRequest extends FormRequest
         return [
             'title' => "Titulo del Articulo",
         ];
-    }
+    }*/
 }
