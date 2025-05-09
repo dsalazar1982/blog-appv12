@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-mail::message>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+# Correo por aprobar
 
-<body>
-    <h1>Correo por aprobar</h1>
+<x-mail::panel>Se ha creado un nuevo post que necesita ser aprobado.</x-mail::panel>
 
-    <p>Se ha creado un nuevo post que necesita ser aprobado.</p>
+<x-mail::button :url="route('posts.show', $post)" color="success">Click aqui para aprobar.</x-mail::button>
 
-    <a href="{{ route('posts.show', $post) }}">Click aqui para aprobar.</a>
-
-</body>
-
-</html>
+</x-mail::message>
