@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
+use App\Mail\PostCreateMail;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PostController extends Controller
 {
@@ -31,7 +33,7 @@ class PostController extends Controller
             'content' => 'required|min:10',
         ]);*/
 
-        Post::create($request->all());
+        $post = Post::create($request->all());
 
         /*Post::create([
             'title' => $request->title,
@@ -49,6 +51,9 @@ class PostController extends Controller
 
         /*$posts = Post::orderBy('id', 'desc')->paginate(10);
         return view('posts.index', compact('posts'));*/
+
+        Mail::to('editor@opensed.com')->send(new PostCreateMail($post));
+
         return redirect()->route('posts.index');
     }
 
